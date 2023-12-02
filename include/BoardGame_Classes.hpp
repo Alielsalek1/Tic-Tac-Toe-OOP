@@ -83,6 +83,7 @@ public:
 };
 
 class four_in_a_row : public Board {
+public:
     four_in_a_row();
 
     bool update_board(int x, int y, char mark);

@@ -25,10 +25,20 @@ int main() {
     if (c == 1) {
         GameManager x_o_game (new X_O_Board(), players);
         x_o_game.run();
+        system ("pause");
     } else if (c == 2) {
-        GameManager x_o_game(new )
+        GameManager x_o_game(new pyramid_board(), players);
+        x_o_game.run();
+        system ("pause");
+    } else if (c == 3) {
+        GameManager x_o_game(new five_by_five(), players);
+        x_o_game.run();
+        system ("pause");
+    } else {
+        GameManager x_o_game(new four_in_a_row(), players);
+        x_o_game.run();
+        system ("pause");
     }
 
-    system ("pause");
     return 0;
 }
