@@ -140,6 +140,12 @@ public:
     void get_move(int &x, int &y);
 };
 
+class smartPlayer : public Player {
+public:
+    void get_move(int &x, int &y);
+    pair<int, int> bestmove();
+};
+
 ///////////////////////////////////////////
 class GameManager {
 private:

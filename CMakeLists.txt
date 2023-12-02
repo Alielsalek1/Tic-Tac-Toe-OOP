@@ -14,4 +14,6 @@ add_executable(tic_tac_OOP main.cpp
         Player.cpp
         four_in_a_row.cpp
         include/BoardGame_Classes.hpp
-        five_by_five.cpp)
+        five_by_five.cpp
+        smartPlayer.cpp
+)
