@@ -12,9 +12,6 @@ add_executable(tic_tac_OOP main.cpp
         X_O_App.cpp
         GameManager.cpp
         Player.cpp
-        pyramid_board.h
-        four_in_a_row.h
         four_in_a_row.cpp
         include/BoardGame_Classes.hpp
-        five_by_five.h
         five_by_five.cpp)

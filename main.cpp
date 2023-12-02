@@ -16,8 +16,19 @@ int main() {
         //Player pointer points to child
         players[1] = new RandomPlayer ('o', 3);
 
-    GameManager x_o_game (new X_O_Board(), players);
-    x_o_game.run();
+    cout << "choose a type of game to play from 1-3 :\n"
+            "1 - 3x3\n"
+            "2 - pyramid board\n"
+            "3 - 5x5\n"
+            "4 - four in a row\n";
+    int c; cin >> c;
+    if (c == 1) {
+        GameManager x_o_game (new X_O_Board(), players);
+        x_o_game.run();
+    } else if (c == 2) {
+        GameManager x_o_game(new )
+    }
+
     system ("pause");
     return 0;
 }
