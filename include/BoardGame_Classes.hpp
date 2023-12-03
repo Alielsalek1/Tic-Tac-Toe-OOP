@@ -67,21 +67,6 @@ public:
     bool game_is_over();
 };
 
-class five_by_five : public Board {
-public:
-    five_by_five();
-
-    bool update_board(int x, int y, char mark);
-
-    void display_board();
-
-    bool is_winner();
-
-    bool is_draw();
-
-    bool game_is_over();
-};
-
 class four_in_a_row : public Board {
 public:
     four_in_a_row();
@@ -166,4 +151,20 @@ public:
 
 };
 
+class five_by_five : public Board {
+private:
+    Player *players[2];
+public:
+    five_by_five(Player *players[2]);
+
+    bool update_board(int x, int y, char mark);
+
+    void display_board();
+
+    bool is_winner();
+
+    bool is_draw();
+
+    bool game_is_over();
+};
 #endif
