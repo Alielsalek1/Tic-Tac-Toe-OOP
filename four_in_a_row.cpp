@@ -29,7 +29,7 @@ void four_in_a_row::display_board() {
             cout << "(" << i << "," << j << ")";
             cout << setw(2) << board[i][j] << " |";
         }
-        cout << "\n-----------------------------";
+        cout << "\n--------------------------------------------------------------";
     }
     cout << endl;
 }
@@ -37,25 +37,25 @@ void four_in_a_row::display_board() {
 bool four_in_a_row::is_winner() {
     for (int i = 0; i < 6; ++i) {
         for (int j = 0; j < 4; ++j) {
-            if (board[i][j] == board[i][j + 1] == board[i][j + 2] == board[i][j + 3])
+            if (board[i][j] == board[i][j + 1] && board[i][j + 1] == board[i][j + 2] && board[i][j + 1] == board[i][j + 3] && isalpha(board[i][j]))
                 return true;
         }
     }
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 7; ++j) {
-            if (board[i][j] == board[i + 1][j] == board[i + 2][j] == board[i + 3][j])
+            if (board[i][j] == board[i + 1][j] && board[i + 1][j] == board[i + 2][j] && board[i + 1][j] == board[i + 3][j] && isalpha(board[i][j]))
                 return true;
         }
     }
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 4; ++j) {
-            if (board[i][j] == board[i + 1][j + 1] == board[i + 2][j + 2] == board[i + 3][j + 3])
+            if (board[i][j] == board[i + 1][j + 1] && board[i + 1][j + 1] == board[i + 2][j + 2] && board[i + 1][j + 1] == board[i + 3][j + 3] && isalpha(board[i][j]))
                 return true;
         }
     }
     for (int i = 0; i < 3; ++i) {
         for (int j = 6; j >= 3; --j) {
-            if (board[i][j] == board[i + 1][j - 1] == board[i + 2][j - 2] == board[i + 3][j - 3])
+            if (board[i][j] == board[i + 1][j - 1] && board[i + 1][j - 1] == board[i + 2][j - 2] && board[i + 1][j - 1] == board[i + 3][j - 3] && isalpha(board[i][j]))
                 return true;
         }
     }
