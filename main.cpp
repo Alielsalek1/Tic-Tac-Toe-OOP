@@ -31,7 +31,7 @@ int main() {
         x_o_game.run();
         system ("pause");
     } else if (c == 3) {
-        GameManager x_o_game(new five_by_five(), players);
+        GameManager x_o_game(new five_by_five(players), players);
         x_o_game.run();
         system ("pause");
     } else {
