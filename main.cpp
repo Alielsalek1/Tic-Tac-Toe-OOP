@@ -39,6 +39,5 @@ int main() {
         x_o_game.run();
         system ("pause");
     }
-
     return 0;
 }

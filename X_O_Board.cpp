@@ -74,5 +74,5 @@ bool X_O_Board::is_draw() {
 }
 
 bool X_O_Board::game_is_over() {
-    return n_moves >= 9;
+    return n_moves == 9;
 }

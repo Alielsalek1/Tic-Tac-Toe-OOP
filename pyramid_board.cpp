@@ -28,24 +28,25 @@ void pyramid_board::display_board() {
     int up = 2, low = 2;
     for (int i: {0, 1, 2}) {
         cout << "\n| ";
-        for (int j = up; j <= low; ++j) {
+        for (int j = 0; j < low; ++j) cout << "        |";
+        for (int j = low; j <= up; ++j) {
             cout << "(" << i << "," << j << ")";
             cout << setw(2) << board[i][j] << " |";
         }
         low--, up++;
-        cout << "\n-----------------------------";
+        cout << "\n----------------------------------------";
     }
     cout << endl;
 }
 
 bool pyramid_board::is_winner() {
     // check diagonals
-    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) return true;
-    if (board[2][0] == board[1][1] && board[1][1] == board[0][2]) return true;
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && isalpha(board[0][0])) return true;
+    if (board[2][0] == board[1][1] && board[1][1] == board[0][2] && isalpha(board[2][0])) return true;
     // check mid
-    if (board[1][1] & board[1][2] & board[1][3]) return true;
+    if (board[1][1] == board[1][2] && board[1][2] == board[1][3] && isalpha(board[1][1])) return true;
     for (int i = 0; i < 3; ++i) {
-        if (board[2][i] == board[2][i + 1] && board[2][i + 1] == board[2][i + 2]) return true;
+        if (board[2][i] == board[2][i + 1] && board[2][i + 1] == board[2][i + 2] && isalpha(board[2][i])) return true;
     }
     return false;
 }
