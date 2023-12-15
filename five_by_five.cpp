@@ -56,6 +56,7 @@ bool five_by_five::game_is_over() {
             for (int k = 1; k <= 2; ++k) {
                 if (i + k < 5 and j + k < 5 and board[i + k][j + k] == c) cnt++;
             }
+            cnt = 0;
             for (int k = 1; k <= 2; ++k) {
                 if (i - k >= 0 and j + k < 5 and board[i - k][j + k] == c) cnt++;
             }
@@ -63,11 +64,11 @@ bool five_by_five::game_is_over() {
         }
     }
     if (winsCnt[0] > winsCnt[1]) {
-        cout << players[0]->to_string() << " winsCnt";
+        cout << players[0]->to_string() << " wins with " << winsCnt[0] << " times 3Xs and " << players[1] << " loses with " << winsCnt[1] << " times 3Os.";
     } else if (winsCnt[1] > winsCnt[0]) {
-        cout << players[1]->to_string() << " winsCnt";
+        cout << players[1]->to_string() << " wins with " << winsCnt[1] << " times 3Os and " << players[0] << " loses with " << winsCnt[0] << " times 3Xs.";
     } else {
-        cout << "Draw!" << endl;
+        cout << "Draw! both players got 3 in a row " << winsCnt[0] << " times." << endl;
     }
     return true;
 }
