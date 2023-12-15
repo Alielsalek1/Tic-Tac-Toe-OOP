@@ -27,7 +27,8 @@ int main() {
         GameManager x_o_game(new pyramid_board(), players);
         x_o_game.run();
         system ("pause");
-    } else if (c == 3) {
+    } else if (c == 3){
+        for (auto & player : players) delete player;
         players[0] = new fiveByFivePlayer('x', players[0]);
         players[1] = new fiveByFivePlayer('o', players[1]);
         GameManager x_o_game(new five_by_five(players), players);
