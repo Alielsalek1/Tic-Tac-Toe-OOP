@@ -16,4 +16,5 @@ add_executable(tic_tac_OOP main.cpp
         include/BoardGame_Classes.hpp
         five_by_five.cpp
         smartPlayer.cpp
+        fiveByFiveplayer.cpp
 )

@@ -15,12 +15,12 @@ five_by_five::five_by_five(Player *playerPtr[2]){
 
 bool five_by_five::update_board(int x, int y, char mark) {
     // Only update if move is valid
-    if (!(x < 0 || x > 2 || y < 0 || y > 2) && (board[x][y] == 0) && n_moves < 24) {
+    if (!(x < 0 || x > 4 || y < 0 || y > 4) && (board[x][y] == 0) && n_moves < 24) {
         board[x][y] = toupper(mark);
         n_moves++;
         return true;
-    } else
-        return false;
+    } else if (n_moves == 24) n_moves++;
+    return false;
 };
 
 void five_by_five::display_board() {
@@ -30,14 +30,14 @@ void five_by_five::display_board() {
             cout << "(" << i << "," << j << ")";
             cout << setw(2) << board[i][j] << " |";
         }
-        cout << "\n-----------------------------";
+        cout << "\n-----------------------------------------------";
     }
     cout << endl;
 };
 
 bool five_by_five::game_is_over() {
-    if (n_moves < 25) return false;
-    int winsCnt[2];
+    if (n_moves < 24) return false;
+    int winsCnt[2] = {0,0};
     for (int i = 0; i < 5; ++i) {
         for (int j = 0; j < 5; ++j) {
             char c = board[i][j];
@@ -46,26 +46,30 @@ bool five_by_five::game_is_over() {
             for (int k = 1; k <= 2; ++k) {
                 if (j + k < 5 and board[i][j + k] == c) cnt++;
             }
-            winsCnt[c == 'O'] += cnt == 3;
+            winsCnt[c == 'O'] += cnt == 2;
             cnt = 0;
             for (int k = 1; k <= 2; ++k) {
                 if (i + k < 5 and board[i + k][j] == c) cnt++;
             }
-            winsCnt[c == 'O'] += cnt == 3;
+            winsCnt[c == 'O'] += cnt == 2;
             cnt = 0;
             for (int k = 1; k <= 2; ++k) {
                 if (i + k < 5 and j + k < 5 and board[i + k][j + k] == c) cnt++;
             }
-            winsCnt[c == 'O'] += cnt == 3;
-        }
-        if (winsCnt[0] > winsCnt[1]) {
-            cout << players[0]->to_string() << " winsCnt";
-        } else if (winsCnt[1] > winsCnt[0]) {
-            cout << players[1]->to_string() << " winsCnt";
-        } else {
-            cout << "Draw!" << endl;
+            for (int k = 1; k <= 2; ++k) {
+                if (i - k >= 0 and j + k < 5 and board[i - k][j + k] == c) cnt++;
+            }
+            winsCnt[c == 'O'] += cnt == 2;
         }
     }
+    if (winsCnt[0] > winsCnt[1]) {
+        cout << players[0]->to_string() << " winsCnt";
+    } else if (winsCnt[1] > winsCnt[0]) {
+        cout << players[1]->to_string() << " winsCnt";
+    } else {
+        cout << "Draw!" << endl;
+    }
+    return true;
 }
 
 bool five_by_five::is_winner() {
@@ -75,3 +79,4 @@ bool five_by_five::is_winner() {
 bool five_by_five::is_draw() {
     return false;
 }
+
