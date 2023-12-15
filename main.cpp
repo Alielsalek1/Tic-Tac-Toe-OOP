@@ -28,9 +28,10 @@ int main() {
         x_o_game.run();
         system ("pause");
     } else if (c == 3){
-        for (auto & player : players) delete player;
+        Player *tmp[2] = {players[0], players[1]};
         players[0] = new fiveByFivePlayer('x', players[0]);
         players[1] = new fiveByFivePlayer('o', players[1]);
+        for (auto & player : tmp) delete player;
         GameManager x_o_game(new five_by_five(players), players);
         x_o_game.run();
         system ("pause");
