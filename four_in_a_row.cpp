@@ -11,7 +11,7 @@ four_in_a_row::four_in_a_row() {
             board[i][j] = 0;
     }
 }
-
+ 
 bool four_in_a_row::update_board(int x, int y, char mark) {
     // Only update if move is valid
     if (y >= 0 && y <= 6 && board[0][y] == 0) {

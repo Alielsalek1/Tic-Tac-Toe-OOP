@@ -131,6 +131,13 @@ public:
     pair<int, int> bestmove();
 };
 
+class fiveByFivePlayer : public Player {
+public:
+    fiveByFivePlayer(char symbol, Player *pPlayer);
+
+    void get_move(int &x, int &y);
+};
+
 ///////////////////////////////////////////
 class GameManager {
 private:
