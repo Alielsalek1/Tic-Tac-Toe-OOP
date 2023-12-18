@@ -13,8 +13,11 @@ four_in_a_row::four_in_a_row() {
 }
 
 bool four_in_a_row::update_board(int x, int y, char mark) {
-// Only update if move is valid
-    if (!(x < 0 || x > 5 || y < 0 || y > 6) && (board[x][y] == 0)) {
+    // Only update if move is valid
+    if (y >= 0 && y <= 6 && board[0][y] == 0) {
+        x = 5;
+        while (x > 0 && board[x][y]) x--;
+
         board[x][y] = toupper(mark);
         n_moves++;
         return true;
