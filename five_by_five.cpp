@@ -56,6 +56,7 @@ bool five_by_five::game_is_over() {
             for (int k = 1; k <= 2; ++k) {
                 if (i + k < 5 and j + k < 5 and board[i + k][j + k] == c) cnt++;
             }
+            winsCnt[c == 'O'] += cnt == 2;
             cnt = 0;
             for (int k = 1; k <= 2; ++k) {
                 if (i - k >= 0 and j + k < 5 and board[i - k][j + k] == c) cnt++;
