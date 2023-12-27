@@ -38,13 +38,13 @@ void pyramid_board::display_board() {
     }
     cout << endl;
 }
-
 bool pyramid_board::is_winner() {
     // check diagonals
     if (board[0][2] == board[1][3] && board[1][3] == board[2][4] && isalpha(board[0][2])) return true;
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && isalpha(board[0][2])) return true;
     // check mid
     if (board[1][1] == board[1][2] && board[1][2] == board[1][3] && isalpha(board[1][1])) return true;
+    if (board[0][2] == board[1][2] && board[1][2] == board[2][2] && isalpha(board[0][2])) return true;
     for (int i = 0; i < 3; ++i) {
         if (board[2][i] == board[2][i + 1] && board[2][i + 1] == board[2][i + 2] && isalpha(board[2][i])) return true;
     }
